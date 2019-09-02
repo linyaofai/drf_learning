@@ -32,3 +32,16 @@ class UserInfoSerializer(serializers.Serializer):
         model =Book
         fields = '__all__'
 
+        extra_kwargs = {
+            'name': {
+                'min_length': 6,
+                'max_length': 12,
+                'error_messages': {
+                    'min_length': '6个字符',
+                    'max_length': '12个字符',
+                },
+            },
+            'price': {
+                'help_text': '６－８位',
+            }
+        }
